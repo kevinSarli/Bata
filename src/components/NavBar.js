@@ -3,6 +3,9 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/NavBar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import CartWidget from "./CartWidget";
+import { BsPersonCircle } from "react-icons/bs";
+
 
 export const NavBar = () => {
   return (
@@ -32,10 +35,10 @@ export const NavBar = () => {
             <Nav>
               <Nav.Link href="#deets">Sobre Nosotros</Nav.Link>
               <Nav.Link eventKey={2} href="#memes">
-                usuario
+                <BsPersonCircle/>
               </Nav.Link>
-              <Nav.Link eventKey={2} href="#carrito">
-                carrito
+              <Nav.Link eventKey={3} href="#carrito">
+                <CartWidget/>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
