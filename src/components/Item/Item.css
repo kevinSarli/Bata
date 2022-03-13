@@ -1,0 +1,247 @@
+
+@media (min-width:320px){
+
+
+article.containercard{
+    margin-top: 25px;
+    display: flex;
+    width: 90%;
+    background-color:rgb(255, 255, 255);
+    text-decoration: none
+}
+
+article a {
+    text-decoration: none;
+}
+
+
+
+article img.product{
+    width: 100%;
+
+}
+
+
+
+article div h4.titlecard{
+    color: rgb(5, 5, 5);
+    margin: 0px;
+
+}
+
+
+
+article div p.pricecard{
+    color: rgb(185, 182, 179);
+    text-decoration: none;
+    margin: 0px;
+    font-size: 20px;
+    display: inline-block;
+    padding: 10px;
+    
+    
+}
+
+article div p.pricecard2{
+    color: rgb(185, 182, 179);
+    text-decoration: line-through;
+    margin: 0px;
+    font-size: 20px;
+    display: inline-block;
+    padding: 10px;
+    
+    
+}
+
+article div p.pricefinal{
+
+    color: rgb(185, 182, 179);
+    text-decoration: none;
+    margin: 0px;
+    font-size: 20px;
+    display: inline-block;
+    padding: 10px;
+}
+
+article p.discountcard{
+    position: relative;
+    top: -200px;
+    color: rgb(245, 240, 240);
+    text-decoration: none;
+    padding-top: 8px;
+    width: 40px;
+    height: 40px;
+    margin: auto 10px;
+    font-size: 15px;
+    border-radius: 60px;
+    background-color: black;
+}
+
+article div p.colorcard{
+    
+    color: rgb(2, 2, 2);
+    text-decoration: none;
+    width: 30px;
+    margin: 10px auto;
+    font-size: 20px;
+    border-radius: 50px;
+    background-color: black;
+
+}
+
+
+
+div.listado{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+
+}
+div.boxlist{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+}
+
+@media (min-width:425px){
+    article.containercard{
+        width: 40%;
+
+    }
+    
+    div.boxlist{
+        width: 100%;
+        height: 40%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    div.containerimg{
+        height: 40%;
+    }
+    div.boximage{
+        height: 160%;
+    }
+}
+
+@media (min-width:620px){
+    div.boximage{
+        height: 180%;
+    }
+}
+
+@media (min-width:769px){
+    article.containercard{
+        margin-top: 25px;
+        display: flex;
+        width: 30%;
+        background-color:rgb(255, 255, 255);
+        text-decoration: none
+    }
+    
+    article a {
+        text-decoration: none;
+    }
+    
+    article img.product{
+        width: 100%;
+    
+    }
+    
+    
+    
+    article div h4.titlecard{
+        color: rgb(5, 5, 5);
+        margin: 0px;
+    
+    }
+    
+    
+    
+    article div p.pricecard{
+        color: rgb(185, 182, 179);
+        text-decoration: none;
+        margin: 0px;
+        font-size: 20px;
+        display: inline-block;
+        padding: 10px;
+        
+        
+    }
+    
+    article div p.pricecard2{
+        color: rgb(185, 182, 179);
+        text-decoration: line-through;
+        margin: 0px;
+        font-size: 20px;
+        display: inline-block;
+        padding: 10px;
+        
+        
+    }
+    
+    article div p.pricefinal{
+    
+        color: rgb(185, 182, 179);
+        text-decoration: none;
+        margin: 0px;
+        font-size: 20px;
+        display: inline-block;
+        padding: 10px;
+    }
+    
+    article p.discountcard{
+        position: relative;
+        top: -200px;
+        color: rgb(245, 240, 240);
+        text-decoration: none;
+        padding-top: 8px;
+        width: 40px;
+        height: 40px;
+        margin: auto 10px;
+        font-size: 15px;
+        border-radius: 60px;
+        background-color: black;
+    }
+    
+    article div p.colorcard{
+        
+        color: rgb(2, 2, 2);
+        text-decoration: none;
+        width: 30px;
+        margin: 10px auto;
+        font-size: 20px;
+        border-radius: 50px;
+        background-color: black;
+    
+    }
+    
+    
+    
+    div.listado{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    }
+
+    div.boxlist{
+        width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    div.containerimg{
+        height: 50%;
+    }
+    div.boximage{
+        height: 128%;
+    }
+}
+@media (min-width:1170px){
+    div.boximage{
+        height: 140%;
+    }
+}
