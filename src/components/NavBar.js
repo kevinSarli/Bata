@@ -4,7 +4,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/NavBar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import CartWidget from "./CartWidget";
-import { BsPersonCircle } from "react-icons/bs";
+import { BsPersonCircle,BsFillHeartFill,BsSearch } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 
 export const NavBar = () => {
@@ -12,33 +13,46 @@ export const NavBar = () => {
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">BATA</Navbar.Brand>
+          <Navbar.Brand ><Link to="/">Bata</Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#features">Productos</Nav.Link>
-              <Nav.Link href="#pricing">Favoritos</Nav.Link>
+              <Nav.Link ><Link to="productos">Productos</Link></Nav.Link>
               <NavDropdown title="Categorias" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">cat 1</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  cat 2
+                <NavDropdown.Item >
+                <Link to="categoria/corseteria">
+                  corseteria
+                  </Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  cat 3
+                <NavDropdown.Item >
+                  <Link to="categoria/pijama">
+                  pijamas
+                  </Link>
                 </NavDropdown.Item>
-                <NavDropdown.Divider />
+                <NavDropdown.Item >
+                <Link to="categoria/traje de baño">
+                  trajedebaño
+                  </Link>
+                </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.4">
-                  Separated link
+                <Link to="categoria4">
+                  cat 4
+                  </Link> 
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">Sobre Nosotros</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                <BsPersonCircle/>
+              <Nav.Link ><BsSearch/></Nav.Link>
+              <Nav.Link eventKey={2} >
+                <Link to="perfil"><BsPersonCircle/></Link>
               </Nav.Link>
-              <Nav.Link eventKey={3} href="#carrito">
+              <Nav.Link eventKey={2} >
+                <Link to="favoritos"><BsFillHeartFill/></Link>
+              </Nav.Link>
+              <Nav.Link eventKey={3} >
+                <Link to="Cart">
                 <CartWidget/>
+                </Link>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -47,3 +61,5 @@ export const NavBar = () => {
     </>
   );
 };
+
+

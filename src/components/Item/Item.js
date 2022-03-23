@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 const Item = ({ prod }) => {
   //   let pricefinal = product.price - (product.price*product.discount/100)
   return (
     <>
-            <article key={prod.id} className="containercard ">
-              <a href="#">
+            <article  className="containercard ">
+    <Link to={`/detail/${prod.id}`}>
                 <div className="containerimg">
                   <div className="boximage"><img
                   className="product"
@@ -36,7 +37,7 @@ const Item = ({ prod }) => {
                   )}
                 </div>
                 </div>
-              </a>
+            </Link>
             </article>
     </>
   );

@@ -3,10 +3,10 @@ import {useState,useEffect} from "react"
 import { Spinner } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import { getFecth } from '../helpers/getFetch'
-import ItemList from './ItemList'
+import ProductList from './ProductList'
 //import Item from "./Item/Item"
 
-function ItemListContainer() {
+function ProductListContainer() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   
@@ -32,11 +32,11 @@ function ItemListContainer() {
     { loading ? 
       <Spinner animation="border" />
     :
-    <ItemList item={products}/>
+    <ProductList item={products}/>
     }
         
     </>
   )
 }
 
-export default ItemListContainer
+export default ProductListContainer
