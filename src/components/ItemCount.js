@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Button, ButtonGroup } from "react-bootstrap";
+import Intercambiabilidad from "./Intercmbiabilidad";
 
 export const ItemCount = ({ initialStock , initial, onAdd }) => {
   const [count, setCount] = useState(initial);
@@ -19,21 +20,26 @@ export const ItemCount = ({ initialStock , initial, onAdd }) => {
     }
     } 
 
+    const agregar = () =>{
+      onAdd(count)
+    }
+
 
 
   return (
     <>
-      <h1>Productos en carrito : {count}</h1>
       <p>stock : {stock}</p>
       <ButtonGroup aria-label="Basic example">
         <Button variant="secondary" onClick={aumentar}>
-          aumentar
+          +
         </Button>
 
         <Button variant="secondary" onClick={disminuir}>
-          disminuir
+          -
         </Button>
       </ButtonGroup>
+      <h4>Productos seleccionados : {count}</h4>
+      <Intercambiabilidad/>
     </>
   );
 };
