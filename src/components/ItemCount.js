@@ -1,11 +1,31 @@
 import React from "react";
 import { useState } from "react";
 import { Button, ButtonGroup } from "react-bootstrap";
-import Intercambiabilidad from "./Intercmbiabilidad";
+
+
+import { Link } from "react-router-dom";
+
+
+const InputSeteado = ()=> {
+
+    return (
+        <>
+        <Link to='/cart' >
+            <button className="btn btn-outline-primary" onClick={()=>console.log('ir a carrito') } >Ir al carrito</button>
+        </Link>
+        <Link to='/' >
+
+            <button className="btn btn-outline-success" onClick={()=>console.log('seguir comprando') } >seguir comprando</button>
+        </Link>
+        </>
+    )
+}
 
 export const ItemCount = ({ initialStock , initial, onAdd }) => {
   const [count, setCount] = useState(initial);
   const [stock, setStock] = useState(initialStock);
+  const [inputType, setInputType ] = useState('button')
+
 
   const aumentar = () =>{
     if (count < 6) {
@@ -22,6 +42,8 @@ export const ItemCount = ({ initialStock , initial, onAdd }) => {
 
     const agregar = () =>{
       onAdd(count)
+      setInputType('input')
+
     }
 
 
@@ -39,7 +61,21 @@ export const ItemCount = ({ initialStock , initial, onAdd }) => {
         </Button>
       </ButtonGroup>
       <h4>Productos seleccionados : {count}</h4>
-      <Intercambiabilidad/>
+      <div>
+
+      {
+                inputType === 'button' ? 
+                <Button  onClick={agregar}>
+                agregar al carrito
+              </Button>
+                : 
+                    <InputSeteado />
+            }
+
+
+      
+
+      </div>
     </>
   );
 };

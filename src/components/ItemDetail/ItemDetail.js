@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { getFecth } from '../../helpers/getFetch'
+import React, {  useState } from 'react'
+import { useCartContext } from '../../context/CartContext';
+
 import Item from "../Item/Item";
+import { ItemCount } from '../ItemCount';
 
 
-function ItemDetail() {
-    const[prod, setProd] = useState([])
+function ItemDetail({prod}) {
     
-    const {id} = useParams()
-    
-    console.log(id)
-    useEffect(()=>{
-      getFecth
-      .then((resp)=> setProd(()=>resp.find(prod => prod.id == id)))
-    },[id])
 
+  const {addToCart, cartList} = useCartContext()
+
+  const onAdd = (cant)=>{
+    console.log(cant)
+    addToCart({ ...prod, cantidad:cant })
+  }
+  console.log(cartList)
 
   return (
     <>
@@ -49,6 +49,7 @@ function ItemDetail() {
                 </div>
                 </div>
             </article>
+            <ItemCount initialStock={5} initial={1} onAdd={onAdd}/>
     </>
   )
 }
