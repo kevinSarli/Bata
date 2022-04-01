@@ -5,31 +5,26 @@ import { useCartContext } from "../context/CartContext";
 
 const Cart = () => {
   const {
-    totalProducts,
     totalPrice,
     cartList,
-    addToCart,
     deleteProduct,
     vaciarCart,
-    isInCart,
     aumentar,
     disminuir
   } = useCartContext();
 
-
-  
-
   console.log(cartList);
   return (
-
-    
+<>
     <div className=" p-1">
-      <Table striped bordered hover variant="dark" >
+    <div className="table-responsive">
+
+      <Table striped bordered hover variant="dark" className="table table-hover ">
+        {cartList !=0 &&
         <thead >
           <tr >
             <th>#</th>
             <th>imagen </th>
-
             <th>nombre </th>
             <th>color </th>
             <th>precio </th>
@@ -39,8 +34,8 @@ const Cart = () => {
             <th>comprar </th>
           </tr>
         </thead>
-        {cartList.map((prod) => (
-          
+        }
+        {cartList.map((prod) => (   
           <tbody>
             <tr>
               <td key={prod.id}>{prod.id}</td>
@@ -62,17 +57,13 @@ const Cart = () => {
               <td className=" p-5"><button onClick={() => deleteProduct(prod.id)}> eliminar </button></td>
               <td className=" p-5">comprar</td>
             </tr>
-
-
-            
-
           </tbody>
 
+))
 
-        ))
-        
-        }
+}
       </Table>
+</div>
 {totalPrice() > 0 ?
 <>
       <h3>Precio Total {totalPrice()}</h3>
@@ -97,9 +88,8 @@ const Cart = () => {
 
 }
 
-
     </div>
+</>
   );
 };
-
 export default Cart;
