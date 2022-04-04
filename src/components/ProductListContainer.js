@@ -1,3 +1,4 @@
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 import React from 'react'
 import {useState,useEffect} from "react"
 import { Spinner } from 'react-bootstrap'
@@ -15,18 +16,16 @@ function ProductListContainer() {
   console.log(id)
 
   useEffect(()=>{
-    if(id){
-    getFecth
-    .then((resp)=>setProducts(resp.filter(prod=> prod.category === id)))
+    const db = getFirestore()
+  
+    const queryCollection = collection(db, 'items')
+    {
+      getDocs(queryCollection)
+    .then (resp => setProducts(resp.docs.map(producto => ({ id:producto.id, ...producto.data() } ))))
     .catch(err => console.log(err))
     .finally(()=> setLoading(false))
-  }else{
-    getFecth
-    .then((resp)=>setProducts(resp))
-    .catch(err => console.log(err))
-    .finally(()=> setLoading(false))
-  }}, [id])
-
+    }
+    }, [id])
   return (
     <>
     { loading ? 

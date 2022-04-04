@@ -40,7 +40,7 @@ const Cart = () => {
             <tr>
               <td key={prod.id}>{prod.id}</td>
               <td className="w-25 p-1">
-                <img className="w-25 p-1" src={prod.image} alt="imagen" />
+                <img className="w-25 p-1" src={prod.image[0]} alt="imagen" />
               </td>
               <td className=" p-5">{prod.name}</td>
 
@@ -51,7 +51,7 @@ const Cart = () => {
                 {prod.cantidad >1 && <button onClick={()=>disminuir(prod.id)}>-</button>}
                 
                 { prod.cantidad}
-                <button onClick={()=>aumentar(prod.id)}>+</button>
+                 {prod.cantidad<prod.stock && <button onClick={()=>aumentar(prod.id)}>+</button>}
               </td>
               <td className=" p-5">{prod.price * prod.cantidad}</td>
               <td className=" p-5"><button onClick={() => deleteProduct(prod.id)}> eliminar </button></td>

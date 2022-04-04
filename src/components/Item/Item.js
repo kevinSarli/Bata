@@ -11,7 +11,7 @@ const Item = ({ prod }) => {
                 <div className="containerimg">
                   <div className="boximage"><img
                   className="product"
-                  src={prod.image}
+                  src={prod.image[0]}
                   alt="imagen"
                 />
                 </div>

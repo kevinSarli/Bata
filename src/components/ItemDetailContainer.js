@@ -5,6 +5,7 @@ import Acordeon from './Acordeon'
 import { ItemCount } from './ItemCount'
 import ItemDetail from './ItemDetail/ItemDetail'
 import { Spinner } from 'react-bootstrap'
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
 
 function ItemDetailContainer() {
 
@@ -14,12 +15,22 @@ function ItemDetailContainer() {
     const {id} = useParams()
     
     console.log(id)
-    useEffect(()=>{
+   /* useEffect(()=>{
       getFecth
       .then((resp)=> setProd(()=>resp.find(prod => prod.id == id)))
       .catch(err => console.log(err))
       .finally(()=> setLoading(false))
-    },[id])
+    },[id])*/
+
+    useEffect(()=>{
+  const db = getFirestore()
+
+  const queryDoc = doc(db, 'items', id)
+  getDoc(queryDoc)
+  .then (resp => setProd({ id:resp.id, ...resp.data() }))
+  .catch(err => console.log(err))
+  .finally(()=> setLoading(false))
+}, [id])
 
   
 

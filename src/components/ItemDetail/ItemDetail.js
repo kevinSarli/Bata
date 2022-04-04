@@ -22,7 +22,7 @@ function ItemDetail({prod}) {
                 <div className="detailcontainerimg">
                   <div className="detailboximage"><img
                   className="productdetail"
-                  src={prod.image}
+                  src={prod.image[0]}
                   alt="imagen"
                 />
                 </div>
@@ -49,7 +49,7 @@ function ItemDetail({prod}) {
                 </div>
                 </div>
             </article>
-            <ItemCount initialStock={5} initial={1} onAdd={onAdd}/>
+            <ItemCount initialStock={prod.stock} maximoincart={prod.stock + 1} initial={1} onAdd={onAdd}/>
     </>
   )
 }

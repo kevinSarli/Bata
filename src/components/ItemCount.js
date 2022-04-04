@@ -1,3 +1,4 @@
+import { getFirestore } from "firebase/firestore";
 import React from "react";
 import { useState } from "react";
 import { Button, ButtonGroup } from "react-bootstrap";
@@ -21,14 +22,16 @@ const InputSeteado = ()=> {
     )
 }
 
-export const ItemCount = ({ initialStock , initial, onAdd }) => {
+export const ItemCount = ({ initialStock ,maximoincart, initial, onAdd }) => {
   const [count, setCount] = useState(initial);
   const [stock, setStock] = useState(initialStock);
+
   const [inputType, setInputType ] = useState('button')
 
+  const db = getFirestore()
 
   const aumentar = () =>{
-    if (count < 6) {
+    if (count < maximoincart) {
       setCount(count + 1);
     setStock(stock - 1)
     }
