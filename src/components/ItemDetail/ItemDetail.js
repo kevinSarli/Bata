@@ -49,7 +49,7 @@ function ItemDetail({prod}) {
                 </div>
                 </div>
             </article>
-            <ItemCount initialStock={prod.stock} maximoincart={prod.stock + 1} initial={1} onAdd={onAdd}/>
+            <ItemCount initialStock={prod.stock - 1} maximoincart={prod.stock + 1} initial={1} onAdd={onAdd}/>
     </>
   )
 }
