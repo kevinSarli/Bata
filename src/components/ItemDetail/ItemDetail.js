@@ -1,5 +1,6 @@
 import React, {  useState } from 'react'
 import { useCartContext } from '../../context/CartContext';
+import ButtonCartFav from '../ButtonCartFav';
 
 import Item from "../Item/Item";
 import { ItemCount } from '../ItemCount';
@@ -8,7 +9,23 @@ import { ItemCount } from '../ItemCount';
 function ItemDetail({prod}) {
     
 
+
   const {addToCart, cartList} = useCartContext()
+
+
+  const {addToFav,deleteProductFav, favList} = useCartContext()
+
+  const onAddFav = (cant)=>{
+    console.log(cant)
+    addToFav({ ...prod, cantidad:cant })
+  }
+  console.log(favList)
+
+  const onRemoveFav = (cant)=>{
+    console.log(cant)
+    deleteProductFav(prod.id)
+  }
+  console.log(favList)
 
   const onAdd = (cant)=>{
     console.log(cant)
@@ -42,6 +59,7 @@ function ItemDetail({prod}) {
                       $
                     </p>
                   )}
+                  <ButtonCartFav onAddFav={onAddFav} onRemoveFav={onRemoveFav}/>
                   <p className="detailcolorcard">c</p>
                   {prod.discount !== 0 && (
                     <p className="detaildiscountcard">{prod.discount}%</p>
@@ -49,6 +67,7 @@ function ItemDetail({prod}) {
                 </div>
                 </div>
             </article>
+
             <ItemCount initialStock={prod.stock - 1} maximoincart={prod.stock + 1} initial={1} onAdd={onAdd}/>
     </>
   )

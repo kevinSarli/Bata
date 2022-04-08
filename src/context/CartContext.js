@@ -8,6 +8,7 @@ export const useCartContext = () => useContext(CartContext)
 
 function CartContextProvider({children}) {
     const[cartList,setcartList] = useState([])
+    const[favList,setfavList] = useState([])
 
     const totalProducts = () => {
         return cartList.reduce((acc, prod) => (acc += prod.cantidad), 0);
@@ -30,6 +31,21 @@ function CartContextProvider({children}) {
         } else {
             setcartList([...cartList, item]);
         }
+    };
+
+    const addToFav =(item)=>{
+        const foundProduct = favList.find((prod) => prod.id === item.id);
+
+        if (foundProduct ) {
+            setfavList([...favList]);
+        } else {
+            setfavList([...favList, item]);
+        }    }
+
+    const deleteProductFav = (id) => {
+        let aux = favList.filter((item) => item.id !== id);
+
+        setfavList(aux);
     };
     
     const deleteProduct = (id) => {
@@ -61,6 +77,9 @@ function CartContextProvider({children}) {
     return (
         <CartContext.Provider value={{
         addToCart,
+        addToFav,
+        favList,
+        deleteProductFav,
         totalProducts,
         totalPrice,
         cartList,
