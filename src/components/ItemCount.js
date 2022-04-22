@@ -1,4 +1,3 @@
-import { getFirestore } from "firebase/firestore";
 import React from "react";
 import { useState } from "react";
 import { Button, ButtonGroup } from "react-bootstrap";
@@ -28,7 +27,6 @@ export const ItemCount = ({ initialStock ,maximoincart, initial, onAdd }) => {
 
   const [inputType, setInputType ] = useState('button')
 
-  const db = getFirestore()
 
   const aumentar = () =>{
     if (count < maximoincart) {
@@ -53,7 +51,8 @@ export const ItemCount = ({ initialStock ,maximoincart, initial, onAdd }) => {
 
   return (
     <>
-      <p>stock : {stock}</p>
+      <div className="grupoCart">
+
       <ButtonGroup aria-label="Basic example">
         <Button variant="secondary" onClick={aumentar}>
           +
@@ -63,20 +62,19 @@ export const ItemCount = ({ initialStock ,maximoincart, initial, onAdd }) => {
           -
         </Button>
       </ButtonGroup>
-      <h4>Productos seleccionados : {count}</h4>
+      <p className="stockdetail">stock : {stock}</p>
+      </div>
+      <h4 className="cartcant">Productos seleccionados : {count}</h4>
       <div>
 
       {
                 inputType === 'button' ? 
-                <Button  onClick={agregar}>
+                <Button className="buttonAgregar" onClick={agregar}>
                 agregar al carrito
               </Button>
                 : 
                     <InputSeteado />
             }
-
-
-      
 
       </div>
     </>

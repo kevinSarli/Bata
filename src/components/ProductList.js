@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css"
 import Item from "./Item/Item";
 import "bootstrap/dist/css/bootstrap.min.css"
-import ListFilter from "./ListFilter";
+import ListFilter from "../../ListFilter";
 
 const ItemList = ({item})=>{
   return(

@@ -1,15 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
-import { useCartContext } from '../../context/CartContext';
-import ButtonCartFav from "../ButtonCartFav";
 
 
 const Item = ({ prod }) => {
 
-
-  
-  //   let pricefinal = product.price - (product.price*product.discount/100)
   return (
     <>
       <article className="containercard ">
@@ -17,7 +12,7 @@ const Item = ({ prod }) => {
         <Link to={`/detail/${prod.id}`}>
           <div className="containerimg">
             <div className="boximage">
-              <img className="product" src={prod.image[0]} alt="imagen" />
+            <img className="product" src={prod.image} alt="imagen" />
             </div>
 
             

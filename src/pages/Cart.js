@@ -1,5 +1,5 @@
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Table,ButtonGroup,Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../context/CartContext";
@@ -80,7 +80,7 @@ const Cart = () => {
             <tr>
               <td key={prod.id}>{prod.id}</td>
               <td className="w-25 p-1">
-                <img className="w-25 p-1" src={prod.image[0]} alt="imagen" />
+                <img className="w-25 p-1" src={prod.image} alt="imagen" />
               </td>
               <td className=" p-5">{prod.name}</td>
 

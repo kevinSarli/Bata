@@ -1,17 +1,10 @@
 import React, { useState } from 'react'
-import { BsHeartFill, BsCartFill, BsHeart, BsCart } from "react-icons/bs";
-import { useCartContext } from '../context/CartContext';
+import { BsHeartFill, BsHeart } from "react-icons/bs";
 
 
 const ButtonCartFav = ({onAddFav, onRemoveFav}) => {
-    const [buttonCart, setButtonCart] = useState("buttoncart");
   const [buttonFav, setButtonFav] = useState("buttonfav");
-  const {addToFav,deleteProductFav, favList} = useCartContext()
 
-
-  
-
-  
 
   const agregarFav = () =>{
     setButtonFav('setbuttonfav')

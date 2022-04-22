@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
-import {  Button, Card, CardGroup, Table } from 'react-bootstrap'
+import React from 'react'
+import {  Card } from 'react-bootstrap'
 import { useCartContext } from '../../context/CartContext';
-import ButtonCartFav from '../ButtonCartFav';
-import Item from '../Item/Item';
-import { BsHeartFill, BsCartFill, BsHeart, BsCart } from "react-icons/bs";
+import { BsHeartFill } from "react-icons/bs";
 
 function Destacados() {
   const {
@@ -11,7 +9,6 @@ function Destacados() {
     deleteProductFav
   } = useCartContext();
 
-  const [buttonFav, setButtonFav] = useState("buttonfav");
 
   
   return (
@@ -19,7 +16,7 @@ function Destacados() {
         
         {favList.map((prod) => (   
           <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={prod.image[0]} />
+  <Card.Img variant="top" src={prod.image} />
   <Card.Body>
     <Card.Title>{prod.name}</Card.Title>
     <Card.Text>
