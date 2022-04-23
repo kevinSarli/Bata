@@ -32,7 +32,7 @@ function AppRouter() {
   useEffect(()=>{
 
     onAuthStateChanged(getAuth(),user=>{
-      if(user?.uid === "IWxR0vcyVWYOpH8sJW99jzDAUtK2"){
+      if(user?.uid === "yhwuxw2gBEMMq2TalSnmcDj4ghm1"){
         setIsLoggedAdmin(true)
       }else{
         setIsLoggedAdmin(false)
@@ -46,7 +46,6 @@ function AppRouter() {
         <NavBar/>
         <Routes>
           <Route path="/" element={<ItemListContainer/>}/>
-          <Route path="/Cart" element={<Cart/>}/>
           <Route path="/detail/:id" element={<ItemDetailContainer/>}/>
           <Route path="/categoria/:id" element={<ItemListContainer />}/>
           <Route path="/favoritos" 
@@ -57,7 +56,13 @@ function AppRouter() {
         }
           />
 
-
+          <Route path="/cart" 
+          element={
+          isLogged
+          ?<Cart/>
+          :<Login/>
+        }
+          />
 
           <Route path="/admin" 
           element={
@@ -67,19 +72,11 @@ function AppRouter() {
         }
           />
 
-
-
-
           <Route path="/auth/*" element={
           !isLogged 
           ?<AuthRoutes/>
         : <ItemListContainer/>
         }/>
-
-
-
-
-
         </Routes>
       </div>
     </BrowserRouter>

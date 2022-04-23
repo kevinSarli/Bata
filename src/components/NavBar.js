@@ -26,7 +26,7 @@ export const NavBar = () => {
   useEffect(()=>{
 
     onAuthStateChanged(getAuth(),user=>{
-      if(user?.uid === "IWxR0vcyVWYOpH8sJW99jzDAUtK2"){
+      if(user?.uid === "yhwuxw2gBEMMq2TalSnmcDj4ghm1"){
         setIsLoggedAdmin(true)
       }else{
         setIsLoggedAdmin(false)
@@ -54,13 +54,11 @@ export const NavBar = () => {
                 </NavDropdown.Item>
                 <NavDropdown.Item >
                 <Link to="categoria/traje de baño">
-                  trajedebaño
+                  traje de baño
                   </Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.4">
-                <Link to="categoria4">
-                  cat 4
-                  </Link> 
+                
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>

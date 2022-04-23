@@ -1,10 +1,16 @@
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from "firebase/firestore";
-import React from "react";
+import React,{useState} from "react";
 import { Table,ButtonGroup,Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../context/CartContext";
+import { Spinner } from 'react-bootstrap'
 
 const Cart = () => {
+
+  const [loading, setLoading] = useState(true)
+
+
+
   const {
     totalPrice,
     cartList,
@@ -15,17 +21,18 @@ const Cart = () => {
   } = useCartContext();
 
   const generarOrden = async(e)=>{
+    
     e.preventDefault()
     let orden={}
-
+    
     orden.buyer = {name : 'kevin', email:'kevinsarli@gmail.com', prone:"1111111111" }
-
+    
     orden.total = totalPrice()
     orden.items = cartList.map(cartItem =>{
       const id = cartItem.id
       const nombre = cartItem.name
       const precio = cartItem.price * cartItem.cantidad
-
+      
       return {id,nombre,precio}
     })
     
@@ -34,23 +41,23 @@ const Cart = () => {
     await addDoc(queryCollectionItems, orden)
     .then(({id}) => alert("su compra fue realizada con exito - el ID de su compre es: " + id))
     vaciarCart()
-
+    
     const queryCollection = collection(db,'items')
-
+    
     const queryActualizarStock = await query(
       queryCollection,
       where(documentId(),'in',cartList.map(it => it.id))
-    )
-    const batch = writeBatch(db)
-
-    await getDocs(queryActualizarStock)
-    .then(resp => resp.docs.forEach(res => batch.update(res.ref,{
-      stock: res.data().stock - cartList.find(item => item.id === res.id).cantidad
-    })))
-
-    batch.commit()
-
-  }
+      )
+      const batch = writeBatch(db)
+      
+      await getDocs(queryActualizarStock)
+      .then(resp => resp.docs.forEach(res => batch.update(res.ref,{
+        stock: res.data().stock - cartList.find(item => item.id === res.id).cantidad
+      })))
+      
+      batch.commit()
+      
+    }
 
   
   return (
@@ -129,6 +136,7 @@ const Cart = () => {
 }
 
     </div>
+
 </>
   );
 };
