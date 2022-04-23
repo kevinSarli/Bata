@@ -4,8 +4,7 @@ Este proyecto es un e-commerce que fui desarrollando a lo largo de la cursada pa
 
 # Despliegue
 
-https://626222ca2f7fad1910e1fdfa--lucky-cocada-206389.netlify.app/
-
+https://playful-salmiakki-4ec4e1.netlify.app/
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
